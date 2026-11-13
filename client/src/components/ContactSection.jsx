@@ -5,9 +5,9 @@ import { api } from '../services/api';
 export default function ContactSection({ settings }) {
 
   const currentSettings = settings || {
-    phone: "+91 98765 43210",
-    email: "contact@stemora.in",
-    location: "Indiranagar & HSR Layout, Bangalore"
+    phone: "+91 709000047",
+    email: "stemoraeducation@gmail.com",
+    location: "stemora edtech 9th main road 3rd cross rd hal 2nd stage indiranagar bengaluru karnataka 560008"
   };
   const whatsappNumber = String(currentSettings.phone).replace(/\D/g, '');
 
