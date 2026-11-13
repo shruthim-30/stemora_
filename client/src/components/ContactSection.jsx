@@ -159,7 +159,7 @@ export default function ContactSection() {
                   className="hover:text-teal-dark hover:underline"
                   title="Click to view on Google Maps"
                 >
-                  {currentSettings.location} 📍
+                  {currentSettings.location} 
                 </a>
               </span>
             </div>
