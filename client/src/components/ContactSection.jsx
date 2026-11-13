@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import { api } from '../services/api';
 
-export default function ContactSection({ settings }) {
+export default function ContactSection() {
 
-  const currentSettings = settings || {
+  const currentSettings = {
     phone: "+91 709000047",
     email: "stemoraeducation@gmail.com",
     location: "stemora edtech 9th main road 3rd cross rd hal 2nd stage indiranagar bengaluru karnataka 560008"
