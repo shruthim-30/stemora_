@@ -4,11 +4,12 @@ import { api } from '../services/api';
 export default function ContactSection() {
 
   const currentSettings = {
-    phone: "+91 709000047",
+    phone: "+91 7090000417",
     email: "stemoraeducation@gmail.com",
     location: "stemora edtech 9th main road 3rd cross rd hal 2nd stage indiranagar bengaluru karnataka 560008"
   };
-  const whatsappNumber = String(currentSettings.phone).replace(/\D/g, '');
+  const whatsappNumber = "917090000417";
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(currentSettings.location)}`;
 
   const [formData, setFormData] = useState({
     school_name: '',
@@ -150,7 +151,16 @@ export default function ContactSection() {
             <div className="flex items-start">
               <span className="inline-block w-3 h-3 bg-teal border-2 border-navy rounded-full mr-3 mt-1.5 shrink-0" />
               <span>
-                Location: {currentSettings.location}
+                Location:{' '}
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-teal-dark hover:underline"
+                  title="Click to view on Google Maps"
+                >
+                  {currentSettings.location} 📍
+                </a>
               </span>
             </div>
 
