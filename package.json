@@ -1,0 +1,28 @@
+
+{
+  "name": "stemora-fullstack",
+  "version": "1.0.0",
+  "description": "Stemora Full-Stack Dynamic STEM Website",
+  "scripts": {
+    "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"cyan,yellow\" \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "build": "npm install --prefix client --include=dev && npm run build --prefix client && npm install --prefix server --omit=dev",
+    "start": "node server/server.js",
+    "setup": "npm install && npm install --prefix server && npm install --prefix client"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "tailwind",
+    "mysql",
+    "godaddy",
+    "stemora",
+    "codespaces"
+  ],
+  "author": "Stemora",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
