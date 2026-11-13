@@ -9,8 +9,6 @@ import HowItWorks from './components/HowItWorks';
 import Achievements from './components/Achievements';
 import SummerChamp from './components/SummerChamp';
 import OnlinePlatform from './components/OnlinePlatform';
-import WallOfInnovators from './components/WallOfInnovators';
-import Testimonials from './components/Testimonials';
 import RoboticsFestival from './components/RoboticsFestival';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -43,17 +41,6 @@ export default function App() {
       .catch(error => console.warn('[ADMIN] Could not verify admin session:', error.message));
   }, []);
 
-  const handlePhotoUpdate = async (id, newUrl) => {
-    const innovator = content.innovators.find(item => item.id === id);
-    if (!innovator) throw new Error('Innovator not found.');
-
-    const updated = await api.saveInnovator({ ...innovator, photo_url: newUrl });
-    setContent(prev => ({
-      ...prev,
-      innovators: prev.innovators.map(item => item.id === id ? updated : item)
-    }));
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-paper text-navy selection:bg-gold selection:text-navy">
       {/* 1. Sticky Navigation */}
@@ -80,29 +67,19 @@ export default function App() {
       {/* 8. Achievements & Dynamic Statistics */}
       <Achievements stats={content.stats} />
 
-      {/* 9. Summer programme */}
+      {/* 9. Summer Programme */}
       <SummerChamp settings={content.settings} />
 
       {/* 10. Stemora Online Learning Platform */}
       <OnlinePlatform />
 
-      {/* 11. Student innovators */}
-      <WallOfInnovators
-        innovators={content.innovators}
-        editable={adminAuthenticated}
-        onPhotoUpdate={handlePhotoUpdate}
-      />
-
-      {/* 12. Community testimonials */}
-      <Testimonials testimonials={content.testimonials} />
-
-      {/* 13. Stemora Robotics Festival */}
+      {/* 11. Stemora Robotics Festival */}
       <RoboticsFestival />
 
-      {/* 14. Contact & School Demo Booking Form */}
+      {/* 12. Contact & School Demo Booking Form */}
       <ContactSection settings={content.settings} />
 
-      {/* 15. Footer */}
+      {/* 13. Footer */}
       <Footer onOpenAdmin={() => setAdminOpen(true)} />
 
       {/* Dynamic Admin Control Panel Modal */}
