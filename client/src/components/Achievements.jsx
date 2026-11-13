@@ -1,8 +1,7 @@
-
 import React from 'react';
 
-export default function Achievements({ stats }) {
-  const currentStats = stats || {
+export default function Achievements() {
+  const currentStats = {
     students_trained: "6000+",
     sessions_delivered: "500+",
     projects_built: "100+",
